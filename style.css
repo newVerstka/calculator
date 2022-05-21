@@ -8,62 +8,63 @@
 }
 
 /* ------------------------------------- */
-.calc{
-      width: 411px;
-}
-
 .display{
-      background: linear-gradient(145.27deg, #2E2C2C -4.62%, #0B0A0A 64.58%);
-      height: 115px;
-      border-radius: 5px;
       text-align: right;
-      font-weight: 500;
-      font-size: 64px;
-      color: #fff;
-      padding: 0px 10px 0px 10px;
+      overflow: hidden;
+      background: linear-gradient(99.37deg, rgba(255, 255, 255, 0.1276) 4.26%, rgba(255, 255, 255, 0.044) 37.4%, rgba(255, 255, 255, 0) 38.29%), #252525;
+      box-shadow: 0px 2px 1px -1px #525252, inset 0px 1px 1px #B5B5B5;
+      border-radius: 20px 20px 0px 0px;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 50px;
+      color: #EFDA92;
+      padding: 5px;
+      margin-bottom: 14px;
+      width: 259px;
+      height: 54px;
+      border: none;
 }
 
-.calc__btn{
-      padding-top: 20px;
-      padding-bottom: 20px;
-      margin-top: -30px;
-      background: #F0F0F3;
-      border-radius: 12px 12px 0px 0px;
-      display: grid;
-      grid-template-columns: repeat(4, 70px);
-      gap: 20px;
-      justify-content: center;
+.calc{
+      width: 269px;
+      height: 390px;
+      background: radial-gradient(186.24% 135.14% at 48.06% -35.14%, #F1F1ED 25.44%, #D6DDE2 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+      box-shadow: 0px 20px 12px -8px rgba(49, 54, 63, 0.4), 0px 3px 2px -2px rgba(0, 0, 0, 0.25), inset 0px -5px 6px #9E9E9E, inset 0px 2px 2px 1px #F0F0F0;
+      border-radius: 34px;
 }
 
 .btn{
-      width: 70px;
-      height: 70px;
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(109% 109% at 40% 100%, #EFEFEF 0%, #B7C7C8 100%);
+      box-shadow: 0px 6px 6px rgba(110, 110, 104, 0.4), 0px 3px 3px -1px , 0px 0px 0px 1px #3F3F3F, inset 2px 4px 4px #CDCDCD;
+      border-radius: 27px;
       border: none;
-      background: #F0F0F3;
-      box-shadow: -10px -10px 24px rgba(255, 255, 255, 0.6), 10px 10px 24px rgba(174, 174, 192, 0.2);
-      border-radius: 16px;
-      color: #728AB7;
-      font-weight: 600;
-      font-size: 36px;
-}
-.btn:active{
-      background: #e2e2e6;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24px;
+      color: #000;
 }
 
-.result{
-      background: #2DD3C5;
-      color: #fff;
-}
-.result:active{
-      background: #29c2b5;
-}
-
-#clear{
-     color:#898989;
-}
-
-.span-2{
-      width: 160px;
+.btn img{
       position: relative;
-      left: -88px;
+      top: 2px;
+}
+
+.btn:active{
+      background: radial-gradient(109% 109% at 40% 100%, #D7EAEB 0%, #95AFB0 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+      box-shadow: 0px 0px 0px 1px #3F3F3F, inset 2px 4px 4px #CDCDCD;
+}
+
+.calc__btn{
+      display: grid;
+      grid-template-columns: repeat(4, 50px);
+      gap: 10px;
+      justify-content: center;
+}
+.span-2{
+      position: relative;
+      left: -60px;
+      width: 110px;
 }
