@@ -1,101 +1,94 @@
 const display = document.querySelector('.display');
+const number = document.querySelectorAll('.num');
 const op = document.querySelectorAll('.operator');
-const numberEl = document.querySelectorAll('.num');
+const action = ['-', '+', '*', '/', '+/-', '%'];
 
-let num1 = '';
-let num2 = '';
-let num3 = '';
-let result = false;
+let Num1 = '';
+let Num2 = '';
 let sign = '';
-let action = ['*', '+', '-', '/'];
-let memory = false;
-let memoryNum = '';
-let localMemory = 0;
+let result = false;
 
-function clearAll() {
-      num1 = '';
-      num2 = '';
-      num3 = '';
-      result = false;
+function AC() {
+      Num1 = '';
+      Num2 = '';
       sign = '';
+      result = false;
       display.textContent = '0';
 }
 
-function del() {
-      if(num1 !=='' && sign === ''){
-            num1 = display.textContent = display.textContent.slice(0, -1);
-      } else if(num1 !=='' && sign !==''){
-            num2 = display.textContent = display.textContent.slice(0, -1);
-      }
-      return;
-}
+document.querySelector('.ac').onclick = AC;
 
-document.querySelector('.del').addEventListener('click', del);
-
-function percent() {
-      num1 = (num1 * num2) / 100;
-      result = true;
-      display.textContent = num1;
-}
-
-for (let i = 0; i < numberEl.length; i++) {
-      numberEl[i].addEventListener('click', function (e) {
-            let number = e.target.textContent;
-
-            if (num2 === '' && sign === '') {
-                  num1 += number;
-                  
-                  display.textContent = num1;
-            } else if (num1 !== '' && num2 !== '' && sign !== '' && result) {
-                  num2 = number;
-                  result = false;
-                  display.textContent = num2;
+for (let i = 0; i < number.length; i++) {
+      number[i].addEventListener('click', function (e) {
+            let numbers = e.target.innerText;
+            if (Num1.length > 9) {
+                  Num1.disabled = true;
+            } else {
+                  if (Num2 === '' && sign === '') {
+                        Num1 += numbers;
+                        display.textContent = Num1;
+                        console.log(Num1)
+                  } else if (Num1 !== '' && Num2 !== '' && result) {
+                        Num2 = numbers;
+                        result = false;
+                        display.textContent = Num2;
+                  }
+                  else {
+                        Num2 += numbers;
+                        display.textContent = Num2;
+                        console.log(Num2)
+                  }
             }
-            else {
-                  num2 += number;
-                  
-                  display.textContent = num2;
-            }
-            return;
+
+
+
+
       });
 }
 
 for (let i = 0; i < op.length; i++) {
       op[i].addEventListener('click', function (e) {
-            let operator = e.target.textContent;
-            if (action.includes(operator)) {
-                  sign = operator;
+            let operators = e.target.innerText;
+            if (action.includes(operators)) {
+                  sign = operators;
+                  // display.textContent = sign;
             }
-            if (operator === '=') {
+            if (operators === '=') {
                   switch (sign) {
                         case '+':
-                              num1 = (+num1) + (+num2);
+                              Num1 = (+Num1) + (+Num2);
                               break;
                         case '-':
-                              num1 = num1 - num2;
+                              Num1 = Num1 - Num2;
                               break;
                         case '*':
-                              num1 = num1 * num2;
+                              Num1 = Num1 * Num2;
                               break;
                         case '/':
-                              if (num2 === '0') {
-                                    num1 = '';
-                                    num2 = '';
-                                    sign = '';
+                              if (Num2 === '0') {
                                     display.textContent = 'Ошибка';
-
+                                    Num1 = '';
+                                    Num2 = '';
+                                    sign = '';
                                     return;
-                              } else {
-                                    num1 = num1 / num2;
                               }
+                              Num1 = Num1 / Num2;
                               break;
                   }
+                  
+                  console.log(Num1)
                   result = true;
-                  display.textContent = num1;
-
+                  display.textContent = Num1;
             }
 
+            if (operators === '%') {
+                  Num1 = (Num1 * Num2) / 100;
+                  display.textContent = Num1;
+                  result = true;
+            } 
 
-
+       
       });
 }
+
+
