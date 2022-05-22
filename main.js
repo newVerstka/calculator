@@ -35,15 +35,22 @@ function del() {
 document.querySelector('.del').addEventListener('click', del);
 
 function percent() {
-      if (num1 - num2) {
+      if (sign==='-') {
             num3 = (num1 * num2) / 100;
             num1 = num1 - num3;
             display.textContent = num1;
+            result = true;
       }
-      else if(num1 + num2){ 
+      else if(sign==='+'){ 
             num3 = (num1 * num2) / 100;
             num1 = (+num1) + (+num3);
             display.textContent = num1;
+            result = true;
+      }
+      else if(sign==='*'){
+            num1 = (num1 * num2) / 100;
+            display.textContent = num1;
+            result = true;
       }
 }
 
