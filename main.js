@@ -7,7 +7,7 @@ let num2 = '';
 let num3 = '';
 let result = false;
 let sign = '';
-let action = ['*', '+', '-', '/'];
+let action = ['*', '+', '-', '/', '%'];
 
 
 function clearAll() {
@@ -35,10 +35,18 @@ function del() {
 document.querySelector('.del').addEventListener('click', del);
 
 function percent() {
-      num1 = (num1 * num2) / 100;
-      result = true;
-      display.textContent = num1;
+      if (num1 - num2) {
+            num3 = (num1 * num2) / 100;
+            num1 = num1 - num3;
+            display.textContent = num1;
+      }
+      else if(num1 + num2){ 
+            num3 = (num1 * num2) / 100;
+            num1 = (+num1) + (+num3);
+            display.textContent = num1;
+      }
 }
+
 
 for (let i = 0; i < numberEl.length; i++) {
       numberEl[i].addEventListener('click', function (e) {
